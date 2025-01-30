@@ -25,6 +25,9 @@ public class Farm {
                 pozemek.add(f);
                 misto = (int) (misto - f.getNeededArea());
                 penize = (int) (penize - f.getPrice());
+                if(f.isZavlazeno() == true){
+                    voda = voda - 1;
+                }
             }
         }
     }

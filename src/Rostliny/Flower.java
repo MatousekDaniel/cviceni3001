@@ -6,15 +6,17 @@ public abstract class Flower {
     protected double price;
     protected double neededArea;
     protected double chanceOfGrowth;
+    protected boolean zavlazeno;
 
-    public Flower(String name, double price, double neededArea, double chanceOfGrowth) {
+    public Flower(String name, double price, double neededArea, double chanceOfGrowth, boolean zavlazeno) {
         this.name = name;
         this.price = price;
         this.neededArea = neededArea;
         this.chanceOfGrowth = chanceOfGrowth;
+        this.zavlazeno = zavlazeno;
     }
 
-    public double zavlazeni(boolean zavlazeno){
+    public double zavlazeni(){
         if (zavlazeno = true){
             return chanceOfGrowth +2;
         }else {
@@ -52,6 +54,14 @@ public abstract class Flower {
 
     public void setChanceOfGrowth(double chanceOfGrowth) {
         this.chanceOfGrowth = chanceOfGrowth;
+    }
+
+    public boolean isZavlazeno() {
+        return zavlazeno;
+    }
+
+    public void setZavlazeno(boolean zavlazeno) {
+        this.zavlazeno = zavlazeno;
     }
 
     @Override
