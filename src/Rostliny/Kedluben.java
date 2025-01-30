@@ -1,4 +1,4 @@
 package Rostliny;
 
-public class Kedluben {
+public class Kedluben extends Flower{
 }

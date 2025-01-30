@@ -1,4 +1,4 @@
 package Rostliny;
 
-public class Brambora {
+public class Brambora extends Flower{
 }
