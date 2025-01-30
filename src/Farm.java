@@ -10,11 +10,11 @@ public class Farm {
     private ArrayList<Animal> stodola;
     private int misto;
     private int voda;
-    private int penize;
+    private double penize;
 
     Random rn = new Random();
 
-    public Farm(ArrayList<Flower> pozemek, ArrayList<Animal> stodola, int misto, int voda, int penize) {
+    public Farm(ArrayList<Flower> pozemek, ArrayList<Animal> stodola, int misto, int voda, double penize) {
         this.pozemek = new ArrayList<>();
         this.stodola = stodola;
         this.misto = 100;
@@ -29,7 +29,7 @@ public class Farm {
                 f.zavlazeni();
                 pozemek.add(f);
                 misto = (int) (misto - f.getNeededArea());
-                penize = (int) (penize - f.getPrice());
+                penize = (double) (penize - f.getPrice());
                 if(f.isZavlazeno() == true){
                     voda = voda - 1;
                 }
@@ -41,7 +41,7 @@ public class Farm {
     }
     private void skliditRostlinu(Flower f){
         if(f.isZrala() == true){
-            penize = (int) (f.getPrice() * 1.5);
+            penize = (double) (f.getPrice() * 1.5);
             misto = (int) (misto + f.getNeededArea());
             pozemek.remove(f);
         } else if (f.isZrala() == false) {
