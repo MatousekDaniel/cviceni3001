@@ -2,6 +2,7 @@ import Rostliny.Flower;
 import Zvirata.Animal;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Farm {
 
@@ -10,6 +11,8 @@ public class Farm {
     private int misto;
     private int voda;
     private int penize;
+
+    Random rn = new Random();
 
     public Farm(ArrayList<Flower> pozemek, ArrayList<Animal> stodola, int misto, int voda, int penize) {
         this.pozemek = new ArrayList<>();
@@ -20,15 +23,29 @@ public class Farm {
     }
 
     private void pridatRostlinu(Flower f){
+        int n = rn.nextInt(11);
         if (misto - f.getNeededArea() > 0) {
             if(penize - f.getPrice() > 0) {
+                f.zavlazeni();
                 pozemek.add(f);
                 misto = (int) (misto - f.getNeededArea());
                 penize = (int) (penize - f.getPrice());
                 if(f.isZavlazeno() == true){
                     voda = voda - 1;
                 }
+                if(n > 0 && n<= f.getChanceOfGrowth()){
+                    f.setZrala(true);
+                }
             }
+        }
+    }
+    private void skliditRostlinu(Flower f){
+        if(f.isZrala() == true){
+            penize = (int) (f.getPrice() * 1.5);
+            misto = (int) (misto + f.getNeededArea());
+            pozemek.remove(f);
+        } else if (f.isZrala() == false) {
+            pozemek.remove(f);
         }
     }
 

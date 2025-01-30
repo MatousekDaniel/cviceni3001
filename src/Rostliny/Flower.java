@@ -7,6 +7,7 @@ public abstract class Flower {
     protected double neededArea;
     protected double chanceOfGrowth;
     protected boolean zavlazeno;
+    protected boolean zrala;
 
     public Flower(String name, double price, double neededArea, double chanceOfGrowth, boolean zavlazeno) {
         this.name = name;
@@ -14,6 +15,7 @@ public abstract class Flower {
         this.neededArea = neededArea;
         this.chanceOfGrowth = chanceOfGrowth;
         this.zavlazeno = zavlazeno;
+        this.zrala = false;
     }
 
     public double zavlazeni(){
@@ -62,6 +64,14 @@ public abstract class Flower {
 
     public void setZavlazeno(boolean zavlazeno) {
         this.zavlazeno = zavlazeno;
+    }
+
+    public boolean isZrala() {
+        return zrala;
+    }
+
+    public void setZrala(boolean zrala) {
+        this.zrala = zrala;
     }
 
     @Override
